@@ -1,0 +1,168 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+
+<div class="w3-container">
+	<center>
+	<h1>Membuat Menu Dengan Menggunakan W3 Bar</h1>
+	<hr>
+</div>
+
+<div class="w3-bar w3-cyan w3-card-4">
+	<button class="w3-bar-item w3-button" onclick="openKota('Bandung')">Bandung</button>
+	<button class="w3-bar-item w3-button" onclick="openKota('Garut')">Garut</button>
+	<button class="w3-bar-item w3-button" onclick="openKota('Bogor')">Bogor</button>
+	<div class="w3-dropdown-hover">
+		<button class="w3-button">Animasi W3-CSS</button>
+		<div class="w3-dropdown-content w3-bar-block w3-card-4">
+			<button class="w3-bar-item w3-button" onclick="openKota('Top')">Top</button>
+			<button class="w3-bar-item w3-button" onclick="openKota('Bottom')">Bottom</button>
+			<button class="w3-bar-item w3-button" onclick="openKota('Zoom')">Zoom</button>
+		</div>
+	</div>
+	<button class="w3-bar-item w3-button" onclick="openKota('ProgramGaji')">Program Gaji</button>
+</div>
+
+<div id="Top" class="w3-container kota w3-animate-top" style="display:none">
+<h2>Animate TOP</h2>
+<hr>
+<img src="css/mobil.jpg">
+</div>
+
+<div id="Bottom" class="w3-container kota w3-animate-bottom" style="display:none">
+<h2>Animate BOTTOM</h2>
+<hr>
+<img src="css/suzy.png">
+</div>
+
+<div id="Zoom" class="w3-container kota w3-animate-zoom" style="display:none">
+<h2>Animate ZOOM</h2>
+<hr>
+<img src="css/minum.jpg">
+</div>
+
+<div id="Bandung" class="w3-container kota" style="display:none">
+<h2>Bandung</h2>
+<hr>
+Bandung Ibu Kota Jawa Barat
+</div>
+
+<div id="Garut" class="w3-container kota" style="display:none">
+<h2>Garut</h2>
+<hr>
+Garut Kota Domba
+</div>
+
+<div id="Bogor" class="w3-container kota" style="display:none">
+<h2>Bogor</h2>
+<hr>
+Bogor Kota Hujan
+</div>
+
+<div id="ProgramGaji" class="w3-container kota" style="display:none">
+<h2>Program Gaji</h2>
+<form name=form1>
+
+<script>
+function proses()
+{
+	var bagian=document.form1.bagian.value;
+	if(bagian=="HRD") var gajipokok=8000000;
+	if(bagian=="PEMASARAN") var gajipokok=6000000;
+	if(bagian=="PRODUKSI") var gajipokok=7000000;
+	if(bagian=="OB") var gajipokok=3000000;
+	document.form1.gajipokok.value=gajipokok;
+	
+	var pendidikan=document.form1.pendidikan.value;
+	if(pendidikan=="S1") var tunjanganpendidikan=1000000;
+	if(pendidikan=="S2") var tunjanganpendidikan=2000000;
+	if(pendidikan=="S3") var tunjanganpendidikan=3000000;
+	document.form1.tunjanganpendidikan.value=tunjanganpendidikan;
+	
+	var tunjanganlain=0;
+	if(document.form1.anak.checked) tunjanganlain=tunjanganlain + (gajipokok * 0.1);
+	if(document.form1.istri.checked) tunjanganlain=tunjanganlain + (gajipokok * 0.15);
+	if(document.form1.makan.checked) tunjanganlain=tunjanganlain + (gajipokok * 0.2);
+	document.form1.tunjanganlain.value=tunjanganlain
+	
+	var totalgaji=gajipokok+tunjanganpendidikan+tunjanganlain;
+	document.form1.totalgaji.value=totalgaji;
+}
+</script>
+
+<script>
+function reset()
+{
+	document.form1.namapegawai.value='';
+	document.form1.bagian.value='';
+	
+	document.form1.pendidikan[0].checked=false;
+	document.form1.pendidikan[1].checked=false;
+	document.form1.pendidikan[2].checked=false;
+	
+	document.form1.anak.checked=false;
+	document.form1.istri.checked=false;
+	document.form1.makan.checked=false;
+	
+	document.form1.gajipokok.value='';
+	document.form1.tunjanganpendidikan.value='';
+	document.form1.tunjanganlain.value='';
+	document.form1.totalgaji.value='';
+}
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+
+<div class="w3-container w3-animate-top">
+
+	<div class="w3-panel w3-red">
+		<center>
+		<h1>PROGRAM GAJI PEGAWAI
+	</div>
+	
+	
+<div class="w3-panel w3-blue w3-card-4">
+<p>
+	<center>
+	<table>
+		<tr><td>NAMA PEGAWAI<td><input class="w3-input" type="text" name="namapegawai">
+		<tr><td>BAGIAN<td><select class="w3-select" name="bagian">
+		<option>HRD
+		<option>PEMASARAN
+		<option>PRODUKSI
+		<option>OB
+		<tr><td>PENDIDIKAN<td>
+		<input class="w3-radio" type="radio" name="pendidikan" value="S1">S1
+		<input class="w3-radio" type="radio" name="pendidikan" value="S2">S2
+		<input class="w3-radio" type="radio" name="pendidikan" value="S3">S3
+		<tr><td>TUNJANGAN LAIN<td><input class="w3-checkbox" type="checkbox" name="anak">ANAK
+		<tr><td><td><input class="w3-checkbox" type="checkbox" name="istri">ISTRI
+		<tr><td><td><input class="w3-checkbox" type="checkbox" name="makan">MAKAN
+		<tr><td colspan=2><hr>
+		<tr><td>GAJI POKOK<td><input class="w3-input" type="text" name="gajipokok">
+		<tr><td>TUNJANGAN PENDIDIKAN<td><input class="w3-input" type="text" name="tunjanganpendidikan">
+		<tr><td>TUNAJANGAN LAIN<td><input class="w3-input" type="text" name="tunjanganlain">
+		<tr><td>TOTAL GAJI<td><input class="w3-input" type="text" name="totalgaji">
+	</table>
+</p>
+</div>
+
+<div class="w3-panel w3-cyan">
+<p>
+<center>
+<input type="button" class="w3-button w3-red w3-circle" value="PROSES" onclick="proses()">
+<input type="button" class="w3-button w3-green" value="RESET" onclick="reset()">
+</p>
+</div>
+</div>
+
+<script>
+function openKota(namaKota) {
+	var i;
+	var x = document.getElementsByClassName("kota");
+	for (i = 0; i < x.length; i++) {
+	x[i].style.display = "none";
+	}
+	document.getElementById(namaKota).style.display = "block";
+}
+</script>
